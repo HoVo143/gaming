@@ -1,0 +1,75 @@
+.small_container_product{
+    display: flex;
+    /* margin-top: 35px; */
+
+}
+.small_container_left{
+    flex-basis: 20%;
+    border-right: 2px solid #333;
+    padding: 35px;
+}
+
+.small_container_right{
+    flex-basis: 80%;
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.wrapper_search{
+    margin-bottom: 25px;
+}
+.wrappers_brands h5, .wrappers_prices h5{
+    /* padding: 25px; */
+    color: #ff523b;
+    font-size: 22px;
+    /* margin-top: 35px; */
+}
+.wrappers_prices{
+    margin-top: 35px;
+}
+.brands{
+    margin: 15px 0;
+}
+.brands .wrapper, .price, .brand {
+    margin: 8px 0;
+}
+.brands label{
+    color: #dbd9d9;
+    cursor: pointer;
+}
+
+/* search */
+form.example input[type=text] {
+  padding: 7px;
+  font-size: 15px;
+  border: 0;
+  float: left;
+  width: 80%;
+  background: #dbd9d9;
+  border-radius: 8px 0 0 8px; 
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 7px;
+  background: #ff523b;  
+  color: white;
+  font-size: 15px;
+  border: 0;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0; 
+
+}
+
+form.example button:hover {
+  opacity: .7;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}

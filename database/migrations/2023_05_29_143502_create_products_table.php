@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name',255);
+            $table->string('slug')->nullable();
             $table->decimal('price', 8, 2);
-            $table->decimal('discount_price', 8, 2);
+            $table->decimal('discount_price', 8, 2)->nullable();
+            $table->integer('qty')->nullable();
             $table->string('image_url',255)->nullable();
             $table->text('description_1')->nullable();
             $table->text('description_2')->nullable();
@@ -30,7 +32,7 @@ return new class extends Migration
             $table->string('webcam',255)->nullable();
             $table->string('pin',255)->nullable();
             $table->string('color',255)->nullable();
-            $table->string('weight',40)->nullable();
+            $table->string('weight',250)->nullable();
             $table->string('communication_port',525)->nullable();
             $table->bigInteger('product_category_id')->unsigned();
             $table->foreign('product_category_id')->references('id')->on('product_category');

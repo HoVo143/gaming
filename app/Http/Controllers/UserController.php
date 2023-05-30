@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -62,8 +63,29 @@ class UserController extends Controller
         //
     }
 
-    public function loginRegister(){
+    public function logininterface(){
         return view('client.pages.login_register');
     }
 
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('home');
+        }
+
+        return back()->withErrors([
+            'email' => 'Ten dang nhap hoac mat khau khong ton tai !',
+        ])->onlyInput('email');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
 }

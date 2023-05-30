@@ -59,37 +59,16 @@
             {{-- Hot Promotion Mouse --}}
             <h2 class="title_home">Hot Promotion Mouse</h2>
             <div class="row_home">
-                <div class="col-4">
-                    <a href="{{route('product.detail')}}"><img class="img_product" src="{{ asset('assets/images/chuot-1.jpg') }}" alt="product"></a>
-                    <a href="{{route('product.detail')}}"><h4>Blue Printed T-shirt</h4></a>
-                    <span class="old-prices">$40.00</span>
-                    <p>$50.00</p>
-                </div>
-                {{--  --}}
-                <div class="col-4">
-                    <a href="{{route('product.detail')}}"><img src="{{ asset('assets/images/chuot-2.jpg') }}" alt="product"></a>
-                    <a href="{{route('product.detail')}}"><h4>Blue Printed T-shirt</h4></a>
-                    <span class="old-prices">$40.00</span>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="{{route('product.detail')}}"><img src="{{ asset('assets/images/chuot-3.png') }}" alt="product"></a>
-                    <a href="{{route('product.detail')}}"><h4>Blue Printed T-shirt</h4></a>
-                    <span class="old-prices">$40.00</span>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="{{route('product.detail')}}"><img src="{{ asset('assets/images/chuot-4.jpg') }}" alt="product"></a>
-                    <a href="{{route('product.detail')}}"><h4>Blue Printed T-shirt</h4></a>
-                    <span class="old-prices">$40.00</span>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="{{route('product.detail')}}"><img src="{{ asset('assets/images/chuot-5.jpg') }}" alt="product"></a>
-                    <a href="{{route('product.detail')}}"><h4>Blue Printed T-shirt</h4></a>
-                    <span class="old-prices">$40.00</span>
-                    <p>$50.00</p>
-                </div>
+                @foreach ($products as $product)
+                    <div class="col-4">
+                        <a href="{{route('product.detail')}}">
+                            <img class="img_product" src="{{ $product->image_url }}" alt="product">
+                        </a>
+                        <a href="{{route('product.detail')}}"><h4>{{ $product->name }}</h4></a>
+                        <span class="old-prices">${{ number_format($product->discount_price, 2) }}</span>
+                        <p>${{ number_format($product->price, 2) }}</p>
+                    </div>
+                @endforeach
             </div>
 
             {{-- LAPTOP GAMING --}}

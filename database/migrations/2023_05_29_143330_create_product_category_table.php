@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('product_category', function (Blueprint $table) {
             $table->id();
-            $table->string('name',255);
+            $table->string('name', 255)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -115,8 +115,6 @@ section{
     margin-top: 5px;
     font-size: 16px;
     font-weight: 500;
-
-    /* color: #dbd9d9;  */
 }
 span.old-prices{
     font-size: 14px;
@@ -124,17 +122,12 @@ span.old-prices{
     color: #6a6a6a;
     font-weight: 500;
 }
-/* .row_home .col-4 a img{
-    width: 100%;
-    height: 100%;
 
-} */
 .col-4 h4{
     color: #555;
     font-weight: normal;
 }
 .col-4 p{
-    /* margin-top: 10px; */
     font-size: 18px;
     font-weight: 500;
     color: red;
@@ -142,10 +135,6 @@ span.old-prices{
 .col-4 a > img:hover{
     transform:scale(1.1);
 }
-/* .col-4 .rating i{
-    color: #ff523b;
-} */
-
 .title_home{
     text-align: center;
     margin: 0 auto 80px;

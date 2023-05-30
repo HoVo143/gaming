@@ -15,57 +15,94 @@
                             <input type="text" class="search1" id="search1" name="search" placeholder="Search..">
                         </form>
                     </li>
-                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li class="hover"><a href="#">Products</a>
                         <div id="containers-product">
                             <div class="containers-product">
                                 <div class="wrappers-product">
                                     <h5><a href="{{ route('product.laptop') }}">Laptop Gaming</a></h5>
-                                    <img class="click-product" src="{{ asset('assets/images/laptop-asus-1.png') }}" alt="">
+                                    <img class="click-product" src="{{ asset('assets/images/laptop-asus-1.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="wrappers-product">
                                     <h5><a href="{{ route('product.mouses') }}">Gaming mouse</a></h5>
-                                    <img class="click-product" src="{{ asset('assets/images/chuot-background1.png') }}" alt="">
+                                    <img class="click-product" src="{{ asset('assets/images/chuot-background1.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="wrappers-product">
                                     <h5><a href="{{ route('product.keyboard') }}">Gaming keyboard</a></h5>
-                                    <img class="click-product" src="{{ asset('assets/images/banphim-background.png') }}" alt="">
+                                    <img class="click-product" src="{{ asset('assets/images/banphim-background.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="wrappers-product">
                                     <h5><a href="{{ route('product.monitor') }}">Gaming monitor</a></h5>
-                                    <img class="click-product" src="{{ asset('assets/images/manhinh-background.png') }}" alt="">
+                                    <img class="click-product" src="{{ asset('assets/images/manhinh-background.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="wrappers-product">
                                     <h5><a href="{{ route('product.headset') }}">Gaming headset</a></h5>
-                                    <img class="click-product" src="{{ asset('assets/images/tainghe-3.png') }}" alt="">
+                                    <img class="click-product" src="{{ asset('assets/images/tainghe-3.png') }}"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="{{ route('account') }}">Checkout</a></li>
+                    {{-- <li><a href="{{ route('account') }}">Checkout</a></li> --}}
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i> <span class="qty-cart">0</span></a>
                     </li>
                     <li><a href="#">
                             <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    User
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-info"></i>
-                                            User</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-truck-fast"></i>
-                                            Order</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="fa-solid fa-right-from-bracket"></i> Logout
-                                        </a>
-                                    </li>
-                                </ul>
+                                @guest
+                                    <a class="dropdown-toggle" href="{{ route('login') }}" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        User
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        {{-- <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-info"></i>
+                                                User</a></li> --}}
+                                        <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fa-solid fa-truck-fast"></i>
+                                                Order</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('login') }}">
+                                                <i class="fa-solid fa-user"></i> Login
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @endguest
+                                @auth
+                                    <a class="dropdown-toggle" href="{{ route('login') }}" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-info"></i>
+                                                {{ Auth::user()->name }}</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-truck-fast"></i>
+                                                Order</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('logout') }}">
+                                                @auth
+                                                    <a href="{{ route('logout') }}" style="margin-left:20px;"
+                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                @endauth
+                                                {{-- <i class="fa-solid fa-right-from-bracket"></i> Logout --}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @endauth
                             </div>
                         </a></li>
                 </ul>

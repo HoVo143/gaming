@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('filename',255)->nullable();
-            $table->string('path')->nullable();
+            $table->string('image_url', 255)->nullable();
             $table->timestamps();
         });
         

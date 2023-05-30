@@ -24,7 +24,10 @@ Route::get('/product-detail' , [HomeController::class , 'productDetail'])->name(
 
 
 //login
-Route::get('/login-register' , [UserController::class , 'loginRegister'])->name('login.register');
+Route::get('/login', [UserController::class, 'logininterface'])->name('login.interface');
+Route::post('/login', [UserController::class, 'login'])->name('login');
+//logout
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 
